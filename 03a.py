@@ -47,11 +47,11 @@ def paths(coords):
         path.append([x,y])
   return path
 
-maps = wires("03.test.txt")
+maps = wires("03.txt")
 
 path1 = set(tuple(i) for i in paths(coords(maps[0])))
 path2 = set(tuple(i) for i in paths(coords(maps[1])))
 
 intersections = path1.intersection(path2)
 
-print(list(intersections))
+print(min([abs(a)+abs(b) for [a,b] in list(intersections)]))
