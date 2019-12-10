@@ -21,8 +21,8 @@ def coords(directions):
   return coords
 
 def paths(coords):
-  path = [[0,0]]
-  for i in range(len(coords)-1):
+  path = []
+  for i in range(1, len(coords)-1):
     if coords[i][0] == coords[i+1][0]:
       x = coords[i][0]
       y1 = coords[i][1]
@@ -52,4 +52,6 @@ maps = wires("03.test.txt")
 path1 = set(tuple(i) for i in paths(coords(maps[0])))
 path2 = set(tuple(i) for i in paths(coords(maps[1])))
 
-print(path1.intersection(path2))
+intersections = path1.intersection(path2)
+
+print(list(intersections))
